@@ -31,6 +31,16 @@ Use this skill when you prepare a custom storefront, in any framework, so that t
 
 The cart and checkout tests click the first visible `product-add-to-cart`.
 
+### Cart
+
+| Test ID | Put it on |
+| --- | --- |
+| `cart-page` | The element that holds the cart page content |
+| `cart-drawer` | The cart drawer |
+| `cart-trigger` | The control that opens the cart drawer |
+
+The suite finds a cart line by its product title inside the visible `cart-page` or the visible `cart-drawer`. After Add to cart, it clicks `cart-trigger` only when it needs the drawer and the added line is not visible.
+
 ## How to adopt
 
 1. Find the existing elements in the tables above in your storefront.
