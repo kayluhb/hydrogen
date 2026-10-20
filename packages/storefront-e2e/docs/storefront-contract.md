@@ -40,6 +40,8 @@ The suite finds the elements in this table with `data-testid` attributes and Pla
 | `cart-line-remove` | The remove control of a cart line |
 | `cart-status` | The cart totals status region |
 | `cart-checkout` | The checkout link of the cart page |
+| `product-results` | The element that holds the product results of a collection or search page |
+| `product-card` | The product link of each result |
 
 IDs can repeat, for example a main and a sticky add to cart. The suite narrows each ID to visible elements, and to the expected text or accessible name when it needs a specific one. The storefront can have other test IDs for its own tests. The suite does not read them.
 
@@ -47,11 +49,11 @@ IDs can repeat, for example a main and a sticky add to cart. The suite narrows e
 
 Collection and search pages must expose product cards as accessible links to product detail pages.
 
-Current first-pass discovery assumes standard label strings and link paths. A future contract should add explicit storefront-owned signifiers so the suite can distinguish product results from unrelated product links without relying on labels alone.
+The suite reads only the visible `product-card` links inside the first visible `product-results` element, so product links outside the results, such as recommendations, do not count. The collection test matches a card by its accessible name, and the collection filter test counts the unique product URL paths of the cards.
 
 ## Collection Filters
 
-At least one probed collection must expose a visible, enabled checkbox filter that changes the URL, returns products, and reduces the visible product-link count when selected. Filters may auto-submit or use a visible Apply filters/Show results button.
+At least one probed collection must expose a visible, enabled checkbox filter that changes the URL, returns products, and reduces the visible product card count when selected. Filters may auto-submit or use a visible Apply filters/Show results button.
 
 Filter labels must include a count like Color Red (4). The suite uses that count to choose a filter that narrows the visible product links, then asserts the filtered result count does not exceed the label count. Browser Back after a filter selection must restore the previous URL and show the same filter unchecked. Missing Storefront API filter data skips the collection filter group.
 
