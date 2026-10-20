@@ -44,8 +44,9 @@ The cart and checkout tests click the first visible `product-add-to-cart`.
 | `cart-line-decrease` | The decrease quantity control of a cart line |
 | `cart-line-remove` | The remove control of a cart line |
 | `cart-status` | The cart totals status region |
+| `cart-checkout` | The checkout link of the cart page |
 
-The suite finds a cart line by its product title inside the visible `cart-page` or the visible `cart-drawer`. After Add to cart, it clicks `cart-trigger` only when it needs the drawer and the added line is not visible. It finds the quantity input and the line controls inside that line. It waits for the English messages `Updating cart totals` and `Cart totals updated` in `cart-status`. The checkout test reuses `cart-drawer`, `cart-page`, and `cart-line` to find the added line.
+The suite finds a cart line by its product title inside the visible `cart-page` or the visible `cart-drawer`. After Add to cart, it clicks `cart-trigger` only when it needs the drawer and the added line is not visible. It finds the quantity input and the line controls inside that line. It waits for the English messages `Updating cart totals` and `Cart totals updated` in `cart-status`. The checkout test reuses `cart-drawer`, `cart-page`, and `cart-line` to find the added line. Then it clicks the first visible `cart-checkout` on the cart page and expects a checkout URL.
 
 ## How to adopt
 

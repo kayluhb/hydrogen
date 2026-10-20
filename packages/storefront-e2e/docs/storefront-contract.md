@@ -39,6 +39,7 @@ The suite finds the elements in this table with `data-testid` attributes and Pla
 | `cart-line-decrease` | The decrease quantity control of a cart line |
 | `cart-line-remove` | The remove control of a cart line |
 | `cart-status` | The cart totals status region |
+| `cart-checkout` | The checkout link of the cart page |
 
 IDs can repeat, for example a main and a sticky add to cart. The suite narrows each ID to visible elements, and to the expected text or accessible name when it needs a specific one. The storefront can have other test IDs for its own tests. The suite does not read them.
 
@@ -105,7 +106,7 @@ Cart UI that has no ID in Test IDs is found by role, label, and text.
 
 The checkout test verifies only the storefront-owned side of the checkout handoff.
 
-It verifies the added product and variant in the storefront cart, clicks the visible checkout link, and waits for a checkout URL. It finds the added line with `cart-drawer`, `cart-page`, and `cart-line`. It does not depend on the external checkout document loading, enter customer data, payment data, or perform any irreversible checkout step.
+It verifies the added product and variant in the storefront cart, clicks the first visible `cart-checkout` link on the cart page, and waits for a checkout URL. It finds the added line with `cart-drawer`, `cart-page`, and `cart-line`. It does not depend on the external checkout document loading, enter customer data, payment data, or perform any irreversible checkout step.
 
 If the storefront does not start checkout navigation, the test fails as a contract issue. External checkout availability is outside this suite's boundary.
 
