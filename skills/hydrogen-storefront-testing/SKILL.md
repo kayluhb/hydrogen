@@ -42,6 +42,7 @@ The cart and checkout tests click the first visible `product-add-to-cart`.
 | `cart-line-quantity` | The quantity input of a cart line |
 | `cart-line-increase` | The increase quantity control of a cart line |
 | `cart-line-decrease` | The decrease quantity control of a cart line |
+| `cart-line-remove` | The remove control of a cart line |
 
 The suite finds a cart line by its product title inside the visible `cart-page` or the visible `cart-drawer`. After Add to cart, it clicks `cart-trigger` only when it needs the drawer and the added line is not visible. It finds the quantity input and the line controls inside that line.
 

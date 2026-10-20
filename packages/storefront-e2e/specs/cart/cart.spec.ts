@@ -4,7 +4,6 @@ import { createContractError } from "../../src/contract";
 import { test, type CartTestProduct } from "./config";
 
 const CART_SETTLE_TIMEOUT_MS = 15_000;
-const REMOVE_CONTROL_NAME = /remove/i;
 const CART_ENDPOINT_PATTERN = "**/api/cart";
 const CART_TOTALS_UPDATING_TEXT = "Updating cart totals";
 const CART_TOTALS_UPDATED_TEXT = "Cart totals updated";
@@ -231,7 +230,7 @@ async function decreaseCartLineQuantity(page: Page, expectation: CartExpectation
 async function removeCartLine(page: Page, expectation: CartExpectation): Promise<void> {
   const line = await expectCartLine(page, expectation);
   const remove = await lineButton(
-    line.getByRole("button", { name: REMOVE_CONTROL_NAME }),
+    line.getByTestId("cart-line-remove"),
     "remove line item",
     expectation.cartPath,
   );
