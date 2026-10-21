@@ -46,6 +46,8 @@ The suite finds the elements in this table with `data-testid` attributes and Pla
 | `collection-filter-label` | The label that wraps a filter value checkbox |
 | `collection-filter-min-price` | The minimum price input of a price range filter |
 | `collection-filter-apply` | The control that applies the filters, if the page has one (optional) |
+| `search-input` | The search page query input |
+| `search-submit` | The search page submit control (optional) |
 
 IDs can repeat, for example a main and a sticky add to cart. The suite narrows each ID to visible elements, and to the expected text or accessible name when it needs a specific one. The storefront can have other test IDs for its own tests. The suite does not read them.
 
@@ -67,7 +69,7 @@ When a probed collection exposes a Storefront API PRICE_RANGE filter, the page m
 
 ## Search
 
-The search page must expose a searchbox. A visible button with an accessible name containing Search is supported; otherwise the suite submits the searchbox with Enter.
+The search page must expose a search input with `search-input`. If the page has a visible `search-submit` control, the suite clicks it; otherwise it submits the input with Enter.
 
 The suite discovers a live product title, searches for it, and verifies that product appears in visible results. It looks for a visible `product-card` link whose accessible name contains the title inside `product-results` (see Product Results).
 
