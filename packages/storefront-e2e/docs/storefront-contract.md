@@ -42,6 +42,10 @@ The suite finds the elements in this table with `data-testid` attributes and Pla
 | `cart-checkout` | The checkout link of the cart page |
 | `product-results` | The element that holds the product results of a collection or search page |
 | `product-card` | The product link of each result |
+| `collection-filter-value` | Each filter value checkbox |
+| `collection-filter-label` | The label that wraps a filter value checkbox |
+| `collection-filter-min-price` | The minimum price input of a price range filter |
+| `collection-filter-apply` | The control that applies the filters, if the page has one (optional) |
 
 IDs can repeat, for example a main and a sticky add to cart. The suite narrows each ID to visible elements, and to the expected text or accessible name when it needs a specific one. The storefront can have other test IDs for its own tests. The suite does not read them.
 
@@ -53,11 +57,13 @@ The suite reads only the visible `product-card` links inside the first visible `
 
 ## Collection Filters
 
-At least one probed collection must expose a visible, enabled checkbox filter that changes the URL, returns products, and reduces the visible product card count when selected. Filters may auto-submit or use a visible Apply filters/Show results button.
+At least one probed collection must expose a visible, enabled checkbox filter that changes the URL, returns products, and reduces the visible product card count when selected. Filters may auto-submit or use a visible apply control with `collection-filter-apply`.
+
+The suite reads up to 20 visible `collection-filter-label` elements and the `collection-filter-value` checkbox inside each one. It selects a filter by clicking its label.
 
 Filter labels must include a count like Color Red (4). The suite uses that count to choose a filter that narrows the visible product links, then asserts the filtered result count does not exceed the label count. Browser Back after a filter selection must restore the previous URL and show the same filter unchecked. Missing Storefront API filter data skips the collection filter group.
 
-When a probed collection exposes a Storefront API PRICE_RANGE filter, the page must render the price bounds as spinbuttons whose accessible names start with Minimum price and Maximum price. Typing a decimal bound such as 12.5 must put that exact value in the filter.v.price.gte or filter.v.price.lte URL param and keep it in the input. A storefront with no price range filter skips this check.
+When a probed collection exposes a Storefront API PRICE_RANGE filter, the page must render the price bounds as spinbuttons whose accessible names start with Minimum price and Maximum price. The suite finds the minimum price input with `collection-filter-min-price`. Typing a decimal bound such as 12.5 must put that exact value in the filter.v.price.gte or filter.v.price.lte URL param and keep it in the input. A storefront with no price range filter skips this check.
 
 ## Search
 
