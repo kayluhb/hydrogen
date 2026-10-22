@@ -1,5 +1,11 @@
 # @shopify/hydrogen-react
 
+## 2026.4.6
+
+### Patch Changes
+
+- Render unsafe rich text links as text in the default components while preserving their formatting. ([#4246](https://github.com/Shopify/hydrogen/pull/4246)) by [@karreiro](https://github.com/karreiro)
+
 ## 2026.4.5
 
 ### Patch Changes
