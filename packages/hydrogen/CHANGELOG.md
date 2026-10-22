@@ -4,7 +4,7 @@
 
 ### Patch Changes
 
-- Render unsafe rich text links as text in the default components while preserving their formatting. ([#4246](https://github.com/Shopify/hydrogen/pull/4246)) by [@karreiro](https://github.com/karreiro)
+- Render unsafe rich text links as text in the default components while preserving their formatting. ([#4247](https://github.com/Shopify/hydrogen/pull/4247)) by [@karreiro](https://github.com/karreiro)
 
 - Updated dependencies [[`3395022772c276e03a443f5bb9e70182be1ce564`](https://github.com/Shopify/hydrogen/commit/3395022772c276e03a443f5bb9e70182be1ce564)]:
   - @shopify/hydrogen-react@2026.4.6
